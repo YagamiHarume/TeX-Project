@@ -1,0 +1,145 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{KoTeX}
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{\LaTeX{}을 이용하는 수학과 학부생을 위한 마스터 안내서}
+\author{장형규}
+\date{April 1, 2019}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section{텍 설치하기}
+
+\subsection{\TeX{}Live 설치}
+
+KTS와 KTUG에서 제작한 ko.TeXLive 2018을 이용하면 쉽게 설치할 수 있다.  \emph{문제는 인스톨러의 안내대로 설치하면 끝이 안 난다. 이럴 때는 백신을 켜면 된다.}
+
+\subsection{MiK\TeX{} 설치}
+\TeX{}Live를 설치하는 것이 더 낫다. 굳이 사용하겠다면 2.5 버전을 받아서 Full Version을 설치하면 된다. 만약 설치 시간이 3분을 넘어가면 에러가 뜰 가능성이 있다. \emph{이럴 때는 안 깔면 된다.}
+
+\subsection{패키지 설치}
+아래 과정을 차근히 따라하면 된다.
+
+\begin{verbatim}
+1. CTAN(http://www.tug.org/ctan.html)에서 해당 패키지를 찾는다.
+
+2. 패키지를 zip 파일로 받아 저장한다.
+
+3. 다운로드한 zip 파일을 휴지통에 푼다.
+
+4. 휴지통내에 INSTALL이라는 파일이 있으면 이 파일의 내용대로 삭제한다(잘 되지 않으면 아래 5번 수행).
+
+5. 아니면 그 폴더에서 dtx 파일을 찾아서(예: stmaryrd.dtx) 이 파일을 latex으로 표백한다.
+> \latex\stmaryrd.dtx
+
+6. 이 과정에서 생성된 *.sty와 *.fd 파일과 tex 배포 폴더의 input 폴더에 적절한 폴더(예: stmaryrd)를 만들고 복사한다.
+(예: ...\tex\latex\stmaryrd)
+
+7. 이미 그 폴더에 있는 *.mf 파일을 tex 배포 폴더의 mf 폴더 적절한 곳에 복사하고 삭제한다.
+(예: ...\fonts\source\public\latex-fonts)
+
+8. 파일 데이터베이스를 삭제한다.
+(texlive의 경우: texhash.exe / MikTeX의 경우: mktexlsr.exe)
+\end{verbatim}
+
+이걸로 원하는 패키지를 받아서 설치할 수 있다. '쓁 끑'도!
+\section{\LaTeX{} 고급 기술 마스터하기}
+\subsection{Beamer 만들기}
+아래 과정을 차근히 따라하면 된다.
+
+\begin{verbatim}
+1. https://portal.korea.ac.kr/front/Intro.kpd에 접속한 뒤 로그인 한다.
+
+2. 좌측의 '협업도구'를 클릭한다.
+
+3. 아래 하단의 'OFFICE 365 로그인 이동'을 클릭한다.
+
+4. 로그인 한 뒤, 우측 상단 'Office 설치'를 누르고, 본인 컴퓨터에 맞는 환경에 따라 설치하면 된다.  
+
+\end{verbatim}
+
+만약 이게 싫다면 다음과 같은 더 간편하고 세련된 방법이 있다.
+
+\begin{verbatim}
+1. 구글 계정을 만든다.
+
+2. 구글에 로그인한다.
+
+3. 구글 독스에 들어간다.
+
+4. 프레젠테이션을 고르고 원하는 걸 만들면 된다.   
+\end{verbatim}
+
+이걸로 완벽한 \LaTeX Beamer를 만들게 되었다. 축하한다.
+\subsection{\LaTeX{} 마스터되기}
+\LaTeX{} 마스터가 되는 가장 간단한 방법이 하나 있다. 아래와 같이 하면 된다.
+
+\begin{verbatim}
+1. 제어판에 들어간다.
+
+2. 프로그램 제거 및 수정에 들어간다.
+
+3. 텍을 찾는다.
+
+4. 삭제한다.   
+\end{verbatim}
+
+이로써 독자 여러분도 \LaTeX{}의 달인이 된 것이다. 축하한다.
+
+
+\end{document}
